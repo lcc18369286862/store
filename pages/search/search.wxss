@@ -1,0 +1,62 @@
+/* pages/search/search.wxss */
+.head{
+  width: 94%;
+  margin: auto;
+}
+.search{
+  width: 85%;
+  margin-top: 20rpx;
+  padding: 1%;
+  height: 45rpx;
+  border-radius: 10rpx;
+  background-color: #ddd; 
+}
+.search>icon{
+  margin-top: 5rpx;
+  margin-left: 15rpx;
+}
+.cleanOut{
+  position: absolute;
+  right: 130rpx;
+  top: 22rpx;
+}
+.search>input{
+  position: absolute;
+  font-size: 30rpx;
+  /* color: #222; */
+  left:100rpx;
+  width: 61%;
+  top: 23rpx;
+}
+.search_button{
+  position: absolute;
+  border-width: 0;
+  align-content: center;
+  width: 100rpx;
+  top: 24rpx;
+  font-size: 35rpx;
+  right: 0;
+}
+.body>view{
+  margin-top: 40rpx;
+  font-size: 35rpx;
+  height: 60rpx;
+  border-bottom: 1rpx solid #ddd;
+}
+.body>.hotSearch{
+  margin-top: 0rpx;
+  font-size: 32rpx;
+  height: 50rpx;
+  border-width: 0rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.hotSearch>text{ 
+  flex-direction: column;
+  border: 1rpx solid #ccc;
+  border-radius: 5rpx;
+  padding: 5rpx 10rpx;
+  margin-top: 30rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}

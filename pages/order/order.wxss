@@ -1,0 +1,98 @@
+.order_head{
+  padding-top:20rpx;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  z-index: 99;
+  background-color: white; 
+  border-bottom: 1rpx solid #ddd;
+  top: 0rpx;
+  width: 100%;
+}
+.order_head>view{
+  padding-bottom: 30rpx;
+}
+.checked{
+  color: greenyellow;
+  font-weight: 900;
+  border-bottom: 1rpx solid greenyellow;
+}
+.order_head>view{
+  width: 180rpx;
+  align-items: center;
+  padding-left: 70rpx;
+  font-size: 28rpx;
+}
+.shop_info{
+  margin-left: 20rpx;
+  display: flex;
+  flex-direction: row;
+}
+.shop_info>view>image{
+  width: 80rpx;
+  height: 80rpx;
+  margin-top: 20rpx;
+}
+.message_name{
+  display: flex;
+  flex-direction: row;
+  margin-top: 32rpx;
+}
+.message_name>text{
+  font-size: 35rpx;
+  font-weight: 900;
+  margin-left: 20rpx;
+}
+.message_name>icon{
+  margin-top: 8rpx;
+}
+.message_type{
+  font-size: 35rpx;
+  position: relative;
+  right: -110rpx;
+  top: 30rpx;
+}
+.goods{
+  width: 650rpx;
+  display: flex;
+  flex-direction: row;
+}
+.goods>view{
+  font-size: 30rpx;
+  margin: 10rpx;
+  color: #166;
+}
+.goods_number{
+  position: absolute;
+  right: 20rpx;
+}
+.message_money{
+  position: absolute;
+  right: 20rpx;
+  margin-top: 10rpx;
+  font-size: 30rpx;
+  color: #166;
+}
+.message_money>text{
+  color: black;
+  font-weight: 900;
+}
+.payment{
+  position: relative;
+  top: 80rpx;
+  left: 255rpx;
+}
+.payment>button{
+  width: 200rpx;
+  font-size: 30rpx;
+}
+.isEvaluate>view{
+  display: flex;
+  justify-content: center;
+  font-size: 30rpx;
+}
+.isEvaluate>view>image{
+  margin-top: 120rpx;
+  width: 350rpx;
+  height: 300rpx;
+}

@@ -1,0 +1,19 @@
+<view class='login' bindtap="turnLogin" wx:if="{{!hasUserInfo}}">
+  <image class='userinfo-avatar' src="../../image/shouye.jpg"></image>
+  <view>
+    <text>登录/注册</text>
+  </view>
+</view>
+<view class='login' wx:if="{{hasUserInfo}}">
+  <image class='userinfo-avatar' src="{{userInfo.avatarUrl}}"></image>
+  <view>
+    <text>{{userInfo.nickName}}</text>
+  </view>
+</view>
+<view class='user_menu' wx:if="{{hasUserInfo}}">
+  <view class="items" wx:for="{{user_menu}}">{{item}}</view>
+</view>
+<view class='user_menuoff' wx:if="{{!hasUserInfo}}" bindtap='turnLogin'>
+  <view class="items" wx:for="{{user_menu}}" >{{item}}</view>
+</view>
+<button class='logOff' bindtap='logOff' wx:if="{{hasUserInfo}}">退出账号</button>

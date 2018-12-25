@@ -1,0 +1,121 @@
+<view class='shop_head'>
+  <view>
+    <image src='../../image/dingdan.png' mode='scaleToFill'></image>
+  </view>
+  <view class='shopInfo'>
+    <view>
+      <icon type='waiting' size='26rpx' class='waiting'></icon>
+      <text>{{shop.deliver}}</text>
+    </view>
+    <view>
+      <text>{{shop.notice}}</text>
+    </view>
+    <view>
+      <text wx:for="{{shop.tags}}" class='tags' wx:key="*this">{{item}}</text>
+    </view>
+  </view>
+</view>
+<view class='shop_menu'>
+  <text style='font-weight: {{font_weight[0]}};' bindtap='menuButton' data-id='0'>菜单</text>
+  <text style='font-weight: {{font_weight[1]}};' bindtap='menuButton' data-id='1'>评价</text>
+  <text style='font-weight: {{font_weight[2]}};' bindtap='menuButton' data-id='2'>商家</text>
+</view>
+<view class='body' wx:if="{{isShowView[0]}}">
+  <scroll-view scroll-y style="height: 860rpx;width:200rpx;background-color=#d6fed3;">
+    <view wx:for="{{shop_column}}" style='background-color=#d6fed3;' wx:key="*this">
+      <view class='shop_column' wx:if="{{index!=0}}">
+        <view>
+          <view>
+            <text>{{item}}</text>
+          </view>
+          <view>
+            <icon type='success' size='25rpx'></icon>
+            <icon type='success' size='25rpx'></icon>
+          </view>
+        </view>
+      </view>
+      <view class='shop_column_checked' wx:else>
+        <view>
+          <view>
+            <text>{{item}}</text>
+          </view>
+          <view>
+            <icon type='success' size='25rpx'></icon>
+            <icon type='success' size='25rpx'></icon>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view style='height:120rpx'>
+    </view>
+  </scroll-view>
+  <view class='all_area_title'>
+    <text>{{goods_area[0].info}}</text>
+  </view>
+  <scroll-view scroll-y style="height: 860rpx;width:550rpx;">
+    <view class='goods_area' wx:for="{{goods_area}}" wx:for-item="area" wx:for-index="x" wx:key="name">
+      <view style='margin-top:20rpx;'>
+        <text>{{area.info}}</text>
+      </view>
+      <view class='goods' wx:for="{{area.goods}}" wx:for-item="goods" bindtap='showMessage' data-id='{{x+""+index}}' wx:key="name">
+        <view>
+          <image src='{{goods.img}}'></image>
+        </view>
+        <view class='goods_message'>
+          <view class='goods_name'>
+            <text>{{goods.name}}</text>
+          </view>
+          <view class='goods_info'>
+            <text>{{goods.short_info+"..."}}</text>
+          </view>
+          <view class='goods_estimate'>
+            <text>月售{{goods.sale}}   赞{{goods.zan}}</text>
+          </view>
+          <view class='goods_price'>
+            <text class='price'>￥{{goods.price}}</text>
+            <text wx:if="{{goods.isDiscount}}">￥{{goods.oldPrice}}</text>
+            <view>
+              <button>-</button>
+              <text>0</text>
+              <button>+</button>
+            </view>
+          </view>
+          <view class='goods_discount' wx:if="{{goods.isDiscount}}">
+            <text>{{goods.price/goods.oldPrice*10}}折 限{{goods.limit}}份</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view wx:if="{{isShow[1]}}">1
+</view>
+<view wx:if="{{isShow[2]}}">2
+</view>
+
+<view class='bottom'>
+  <image></image>
+  <text>另需配送费￥3.4 | 支持自取</text>
+  <button>20元起送</button>
+</view>
+
+<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<view class="modalDlg" wx:if="{{showModal}}">
+  <view class='goods_name'>
+    <text>{{select_goods.name}}</text>
+  </view>
+  <image src="{{select_goods.img}}" />
+  <view class='goods_estimate'>
+    <text>月售{{select_goods.sale}}   赞{{select_goods.zan}}</text>
+  </view>
+  <view class='goods_price'>
+    <text class='price'>￥{{select_goods.price}}</text>
+    <text wx:if="{{select_goods.isDiscount}}">￥{{select_goods.oldPrice}}</text>
+    <view>
+      <button>-</button>
+      <text>0</text>
+      <button>+</button>
+    </view>
+  </view>
+  <button bindtap="hiddenModal">点我可以关掉对话框</button>
+</view>

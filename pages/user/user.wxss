@@ -1,0 +1,41 @@
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+.login{
+  padding: 30rpx;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: row;
+  background-color: blue;
+}
+.login>view{
+  color: white;
+  margin-left: 30rpx;
+  margin-top: 50rpx;
+}
+.user_menu{
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+.user_menuoff{
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+.user_menuoff>view{
+  color: #aaa;
+}
+.items{
+  padding: 25rpx 50rpx;
+  border-top: 1rpx solid #ccc;
+  font-size: 30rpx;
+}
+.logOff{
+  background-color: white;
+  font-size: 35rpx;
+  height: 90rpx;
+}

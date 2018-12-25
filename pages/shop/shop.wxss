@@ -1,0 +1,277 @@
+/* 头部 */
+
+.shop_head {
+  height: 150rpx;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: blue;
+  color: white;
+}
+
+.shop_head>view {
+  /* border: black 1rpx solid; */
+  width: 150rpx;
+  height: 150rpx;
+}
+
+.shop_head>view>image {
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+  width: 120rpx;
+  height: 120rpx;
+}
+
+.shop_head>.shopInfo {
+  font-size: 22rpx;
+  width: 600rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.shopInfo>view {
+  margin-top: 10rpx;
+}
+
+.waiting {
+  position: relative;
+  top: 6rpx;
+}
+
+.waiting+text {
+  margin-left: 10rpx;
+}
+
+.tags {
+  background-color: red;
+  border-radius: 5rpx;
+  padding: 5rpx;
+  color: white;
+  margin-right: 10rpx;
+  font-size: 20rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+
+/* 主体部分 */
+
+.shop_menu {
+  /* 菜单 */
+  width: 100%;
+  height: 60rpx;
+  padding-left: 20rpx;
+  margin-top: 20rpx;
+  padding-bottom: 20rpx;
+  color: #555;
+  border-bottom: 1rpx solid #ddd;
+}
+
+.shop_menu>text {
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+}
+
+/* 左边的滚动区域 */
+
+::-webkit-scrollbar {
+  /* 取消滚动条的宽度 */
+  width: 0;
+  height: 0;
+}
+
+.body {
+  margin-left: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.body>scroll-view {
+  margin-left: 0;
+}
+
+.shop_column {
+  padding-right: 10rpx;
+  padding-top: 30rpx;
+  padding-left: 30rpx;
+  padding-bottom: 30rpx;
+  font-size: 28rpx;
+  background-color: #d6fed3;
+}
+.shop_column_checked{
+  padding-right: 10rpx;
+  padding-top: 30rpx;
+  padding-left: 30rpx;
+  padding-bottom: 30rpx;
+  font-size: 28rpx;
+  background-color: white;
+}
+
+.shop_column>view,.shop_column_checked>view{
+  margin-top: 0rpx;
+  margin-block-start: 10rpx;
+}
+
+/* 右边的滚动区域 */
+
+.all_area_title {
+  /* 食物栏目 */
+  width: 100%;
+  left: 188rpx;
+  padding-left: 20rpx;
+  padding-top: 20rpx;
+  font-size: 30rpx;
+  position: fixed;
+  height: 60rpx;
+  background-color: white;
+  z-index: 99;
+}
+
+.goods_area>view {
+  padding-left: 20rpx;
+  font-size: 30rpx;
+}
+
+.goods {
+  margin-top: 20rpx;
+  display: flex;
+}
+
+.goods>view>image {
+  margin-right: 20rpx;
+  width: 130rpx;
+  height: 130rpx;
+}
+
+.goods_message {
+  font-size: 30rpx;
+  height: 160rpx;
+}
+
+.goods_name {
+  font-weight: 900;
+  font-size: 35rpx;
+}
+
+.goods_info {
+  font-size: 20rpx;
+}
+
+.goods_estimate {
+  font-size: 20rpx;
+}
+
+.goods_price>text {
+  font-size: 28rpx;
+  color: #ddd;
+  text-decoration: line-through;
+}
+
+.goods_price>.price {
+  font-size: 32rpx;
+  font-weight: 900;
+  color: red;
+  text-decoration: none;
+}
+
+.goods_price>view {
+  position: absolute;
+  right: 0;
+  margin-top: -30rpx;
+  font-size: 40rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.goods_price>view>button {
+  margin-top: 6rpx;
+  margin-right: 10rpx;
+  margin-left: 10rpx;
+  height: 40rpx;
+  width: 40rpx;
+  padding-left: 0;
+  padding-right: 0;
+  padding-bottom: 10rpx;
+  border-radius: 20rpx;
+  background-color: gold;
+  font-weight: 900;
+  font-size: 30rpx;
+  color: black;
+}
+
+.goods_discount {
+  font-size: 20rpx;
+  color: red;
+  font-weight: 900;
+}
+
+/* 漂浮窗口 */
+
+.mask {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  z-index: 9000;
+  opacity: 0.7;
+}
+
+.modalDlg {
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+  width: 580rpx;
+  height: 700rpx;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  margin: -370rpx 85rpx;
+  background-color: #fff;
+  border-radius: 36rpx;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+}
+
+.modalDlg>image {
+  margin-left: 40rpx;
+  width: 500rpx;
+  height: 500rpx;
+}
+
+/* 底部 */
+
+.bottom {
+  position: fixed;
+  bottom: 0;
+  background-color: #555;
+  color: #aaa;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.bottom>image {
+  width: 50rpx;
+  margin-left: 20rpx;
+}
+
+.bottom>text {
+  margin-left: 20rpx;
+  margin-top: 30rpx;
+  font-size: 25rpx;
+}
+
+.bottom>button {
+  width: 200rpx;
+  position: absolute;
+  padding: 0;
+  right: 0;
+  border-radius: 0;
+  font-size: 35rpx;
+  height: 100rpx;
+  background-color: #555;
+  color: #aaa;
+}

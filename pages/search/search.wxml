@@ -1,0 +1,19 @@
+<!--pages/search/search.wxml-->
+<view class='head'>
+  <view>
+    <view class='search'>
+      <icon type='search' size='35rpx'></icon>
+      <input placeholder='饺子' bindinput='doSearch' value='{{searchText}}'></input>
+      <text class='search_button'>搜索</text>
+      <icon type='clear' size='45rpx' wx:if="{{isHasText}}" class='cleanOut' catchtap='cleanText'></icon>
+    </view>
+  </view>
+</view>
+<view class='body'>
+  <view>
+    <text>热门搜索</text>
+  </view>
+  <view class='hotSearch'>
+    <text wx:for="{{hotSearch}}" catchtap='hotSearch' data-id='{{item}}'>{{item}}</text>
+  </view>
+</view>

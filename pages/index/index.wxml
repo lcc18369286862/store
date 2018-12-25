@@ -1,0 +1,47 @@
+<!--pages/user/user.wxml-->
+<view class='getLocation' bindtap='getLocation'>{{location}}
+</view>
+<!-- <scroll-view > -->
+  <view bindtap='onclick'>
+    <view class='search_back' style='{{search_position}};'>
+      <view class='search'>
+        <icon type='search' size='35rpx'></icon>
+        <text>请输入您要的东西</text>
+      </view>
+    </view>
+  </view>
+<!-- </scroll-view> -->
+<image src='../../image/shouye.jpg' class='mainImg'></image>
+<view class='main'>
+  <text class='bigText' bindtap='doClick'>附近商家</text>
+  <view class='sort_view'>
+    <text id='sort_text'>综合排序</text>
+    <text>销量</text>
+    <text>距离</text>
+    <text id='filtrate'>筛选</text>
+  </view>
+  <view wx:for="{{shops}}" class='shop' wx:for-item='shop' bindtap='turntoshop' data-id='{{shop.name}}'>
+    <view>
+      <image src='{{shop.src}}'></image>
+    </view>
+    <view class='shopInfo'>
+      <view>
+        <text class='shopName'>{{shop.name}}</text>
+      </view>
+      <view>
+        <text class='grade'>{{shop.grade}}分 </text>
+        <text> 月售{{shop.sales}}</text>
+        <text class='rightText'>{{shop.shippingTime}}分钟 {{shop.distance}}</text>
+      </view>
+      <view>
+        <text>起送 ￥{{shop.price}} 配送 ￥{{shop.postage}}</text>
+      </view>
+      <view>
+        <text>{{shop.type}}</text>
+      </view>
+      <view>
+        <text wx:for='{{shop.specialitites}}' wx:key='key' class='tags'>{{item}}</text>
+      </view>
+    </view>
+  </view>
+</view>

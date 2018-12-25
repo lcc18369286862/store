@@ -1,0 +1,41 @@
+<view class='order_head'>
+  <view class='{{isChecked[0]}}' catchtap='showMessage' data-id='0'>全部订单</view>
+  <view class='{{isChecked[1]}}' catchtap='showMessage' data-id='1'>待评价</view>
+  <view class='{{isChecked[2]}}' catchtap='showMessage' data-id='2'>退款</view>
+</view>
+<view style='margin-top:90rpx;' wx:if="{{isShow[0]}}">
+  <view style='height:450rpx;border-bottom: 1rpx solid #ddd;' wx:for="{{orderForm}}" wx:for-item="message">
+    <view class="shop_info">
+      <view>
+        <image src="{{message.img}}"></image>
+      </view>
+      <view class='message_name'>
+        <text>{{message.name}}</text>
+        <icon type='success' size='30rpx'></icon>
+      </view>
+      <view class='message_type'>
+        <text wx:if="{{message.type==2}}">尚未完成</text>
+        <text wx:if="{{message.type==1}}">订单已完成</text>
+      </view>
+    </view>
+    <view style='border-top: 1rpx solid #ddd;margin-left:110rpx;'>
+      <view class='goods' wx:for="{{message.goods}}" wx:for-item="goods">
+        <view>{{goods.name}}</view>
+        <view class='goods_number'>x {{goods.count}}</view>
+      </view>
+    </view>
+    <view class='message_money'>共{{message.count}}件商品，实付<text>￥{{message.money}}</text></view>
+    <view class='payment'>
+      <button wx:if="{{message.type==2}}">立即付款</button>
+      <button wx:if="{{message.type==1}}">再来一单</button>
+    </view>
+  </view>
+</view>
+<view class='isEvaluate' wx:if="{{isShow[1]}}">
+  <view><image src='../../image/wudingdan.png'></image></view>
+  <view><text>没有待评价订单哦~</text></view>
+</view>
+<view class='isEvaluate' wx:if="{{isShow[2]}}">
+  <view><image src='../../image/wudingdan.png'></image></view>
+  <view><text>没有退款订单哦~</text></view>
+</view>
