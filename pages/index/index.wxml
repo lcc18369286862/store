@@ -1,5 +1,6 @@
 <!--pages/user/user.wxml-->
 <view class='getLocation' bindtap='getLocation'>{{location}}
+      <image src='/image/showMore.png' class='showMore'></image>
 </view>
 <!-- <scroll-view > -->
   <view bindtap='onclick'>

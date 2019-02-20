@@ -1,0 +1,5 @@
+<template name="showMessgae">
+  <view class="showMessgae" wx:if="{{isShow}}">
+    <view>{{_messageToast}}</view>
+  </view>
+</template>

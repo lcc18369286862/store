@@ -1,0 +1,76 @@
+﻿<!--pages/service/createOrder/createOrder.wxml--> 
+<!-- 顶部 --> 
+<view class='head'> 
+  <!-- 地址栏 --> 
+  <view> 
+    <image src='/image/icon/location.png' style='width:50rpx; height:50rpx;'></image> 
+    <view wx:if="{{address.length!=0}}"> 
+      <view class='title'>{{address[0].title}}</view> 
+      <view>{{address[0].name+" "+address[0].sex}} 
+      {{"  "+address[0].phone}} 
+      </view> 
+    </view> 
+    <image src='/image/showMore.png' class='more'></image> 
+  </view> 
+  <view> 
+    <icon type='waiting' size='35rpx'></icon> 
+    立即送出  
+    <text>大约{{current_time.minute>30?current_time.hour+1:current_time.hour}}：{{current_time.minute>30?current_time.minute-30:current_time.minute+30}}到达</text> 
+    <image src='/image/showMore.png' class='more'></image> 
+  </view> 
+</view> 
+ 
+<!-- 订单商品列表 --> 
+<view class='order_goods'> 
+  <view class='shop_title'>{{current_order.shop_name}}</view> 
+  <view class='goods'> 
+    <view wx:for="{{current_order.goods}}" wx:key="index" wx:if="{{index<3||showMore}}"> 
+      <view> 
+        <view class='image'><image src='{{item.img}}'></image></view> 
+        <view class='message'> 
+          <view>{{item.name}}</view> 
+          <view style='color: #aaa'>x{{item.selectNums}}</view> 
+          <view class='price'>￥{{item.price}}</view> 
+        </view> 
+      </view> 
+      <view class='side'></view> 
+    </view> 
+  </view> 
+  <view class='show_more' wx:if="{{current_order.goods.length>3&&!showMore}}"> 
+    <view bindtap='showMoreGoods'>展示更多</view> 
+  </view> 
+  <view class='show_more' wx:if="{{current_order.goods.length>3&&showMore}}"> 
+    <view bindtap='hiddenMoreGoods'>点击收起</view> 
+  </view> 
+  <view> 
+    <view>配送费</view> 
+    <view>{{current_order.shippingRate}}</view> 
+  </view> 
+  <view> 
+    <view>美团红包</view> 
+  </view> 
+  <view> 
+    <view>商家代金券</view> 
+  </view> 
+  <view></view> 
+</view> 
+ 
+<!-- 订单备注 --> 
+<view> 
+  <view> 
+    <view>支付方式</view> 
+  </view> 
+  <view> 
+    <view>备注</view> 
+  </view> 
+  <view> 
+    <view>餐具数量</view> 
+  </view> 
+</view> 
+ 
+<!-- 前去支付 --> 
+<view class='bottom'> 
+  <button>微信支付￥{{}}  
+    <text>已优惠￥{{}}</text> 
+  </button> 
+</view>

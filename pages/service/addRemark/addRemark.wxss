@@ -1,0 +1,43 @@
+/* pages/service/addRemark/addRemark.wxss */
+page{
+  background-color: #eee;
+}
+.head{
+  padding: 30rpx;
+  background-color: white;
+}
+.number{
+  margin-right: 20rpx;
+  position: relative;
+  bottom: 60rpx;
+  text-align: right;
+  font-size: 35rpx;
+  color: #999;
+}
+textarea{
+  font-size: 35rpx;
+  border: 1rpx solid #ddd;
+  padding: 20rpx;
+  background-color: #eee;
+  width: 650rpx;
+  height: 260rpx;
+}
+.commonRemark{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.commonRemark>view{
+  border: 1rpx solid #ddd;
+  font-size: 30rpx;
+  padding: 10rpx 20rpx;
+  margin-right: 30rpx;
+  margin-bottom: 30rpx;
+  color: #888;
+}
+.submit>button{
+  margin: 30rpx;
+  background-color: goldenrod;
+  width: 690rpx;
+  font-size: 40rpx;
+}

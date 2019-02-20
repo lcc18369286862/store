@@ -1,0 +1,64 @@
+/* pages/service/changeCity/changeCity.wxss */
+/* 搜索框 */
+.input{
+  background-color: #eee;
+  margin: 20rpx;
+  padding: 10rpx 20rpx;
+  display: flex;
+  flex-direction: row;
+  font-size: 30rpx;
+  width: 670rpx;
+}
+.input>icon{
+  position: relative;
+  top: 13rpx;
+  margin: 0 10rpx;
+}
+.input>input{
+  width: 620rpx;
+}
+
+/* 当前城市 */
+.current_city{
+  width: 100%;
+  padding: 25rpx;
+  border-top: 1rpx solid #eee;
+  border-bottom: 1rpx solid #eee;
+  font-size: 37rpx;
+}
+.current_city>image{
+  width: 40rpx;
+  height: 40rpx;
+  position: relative;
+  top: 9rpx;
+}
+.current_city>text{
+  font-size: 36rpx;
+  font-weight: 900;
+}
+
+/* 热门城市 */
+.title{
+  margin: 20rpx;
+  margin-top: 50rpx;
+  font-size: 30rpx;
+  color: #aaa;
+}
+.hot_city{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 15rpx;
+}
+.hot_city>view{
+  width: 130rpx;
+  text-align: center;
+  padding: 12rpx;
+  margin: 10rpx;
+  font-size: 30rpx;
+  background-color: #eee; 
+}
+.hot_city>.current{
+  border: 1rpx solid greenyellow;
+  color: greenyellow;
+}

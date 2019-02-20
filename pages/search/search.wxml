@@ -14,6 +14,6 @@
     <text>热门搜索</text>
   </view>
   <view class='hotSearch'>
-    <text wx:for="{{hotSearch}}" catchtap='hotSearch' data-id='{{item}}'>{{item}}</text>
+    <text wx:for="{{hotSearch}}" catchtap='hotSearch' data-text='{{item}}'>{{item}}</text>
   </view>
 </view>

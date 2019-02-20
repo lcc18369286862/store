@@ -34,6 +34,10 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,// 用户信息
+    location: {},//用户的位置信息
+    current_city:"",//用户当前所在城市
+    address:[],//用户之前使用过的地址
+    current_order:{},//当前订单
   }
 })

@@ -3,6 +3,13 @@
   margin: 15rpx 30rpx;
   font-size: 35rpx;
 }
+.showMore{
+  width:30rpx;
+  height:30rpx;
+  position: absolute;
+  right:20rpx;
+  top:25rpx;
+}
 .search{
   width: 90%;
   margin-left: 3%;

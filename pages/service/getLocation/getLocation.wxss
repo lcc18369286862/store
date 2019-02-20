@@ -1,0 +1,161 @@
+/* pages/service/getLoaction/getLoaction.wxss */
+/* 顶部输入框 */
+.choose_city{
+  padding: 20rpx 20rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid #eee;
+}
+.choose_city>view{
+  font-size: 35rpx;
+  padding-top: 15rpx;
+}
+.choose_city>image{
+  margin-top: 10rpx;
+  position: relative;
+  top: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.choose_city>.address{
+  border-radius: 5prx;
+  background-color: #eee;
+  padding: 10rpx 20rpx;
+  display: flex;
+  flex-direction: row;
+}
+.choose_city>.address>icon{
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+}
+
+/* 重新定位 */
+.reposition{
+  display: flex;
+  flex-direction: row;
+  padding: 30rpx;
+  font-size: 35rpx;
+  font-family: "微软雅黑";
+}
+.reposition>.reposition_icon{
+  position: absolute;
+  font-size: 30rpx;
+  color: goldenrod;
+  top: 12rpx;
+  right: 30rpx;
+}
+.reposition>.reposition_icon>image{
+  position: relative;
+  top: 20rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+/* 用户之前使用过的地址 */
+.my_address{
+  width: 100%;
+  border-top: 1rpx solid #eee;
+  padding-left: 20rpx;
+  padding-top: 40rpx;
+  padding-bottom: 10rpx;
+  font-size: 30rpx;
+  color: #888;
+}
+.my_address>image{
+  position: relative;
+  top: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.address{
+  display: flex;
+  flex-direction: column;
+  padding-left: 70rpx;
+  padding-right: 40rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.address>view{
+  padding: 20rpx 0;
+  margin-bottom: -1rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.address>view>.title{
+  color: black;
+  font-size: 38rpx;
+}
+.address>view>view{
+  padding: 5rpx 0;
+  font-size: 30rpx;
+  color: #888;
+}
+.address>view>view>text{
+  margin-left: 60rpx;
+}
+
+/* 附近地址 */
+.near{
+  padding: 30rpx 20rpx;
+  color: #888;
+  font-size: 32rpx;
+}
+.near>image{
+  width: 40rpx;
+  height: 40rpx;
+  position: relative;
+  top: 10rpx;
+  margin-left: 15rpx;
+}
+
+/* 搜索得到的地址 */
+.addresses{
+  margin-left: 80rpx;
+  margin-right: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+.addresses>view{
+  border-bottom: 1rpx solid #eee;
+  padding: 25rpx 0;
+  font-size: 35rpx;
+}
+.addresses>view:hover{
+  background-color: #eee;
+}
+
+/* 底部按钮 */
+.bottom{
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  height: 70rpx;
+  border-top: 1rpx solid #ddd;
+  padding-top: 20rpx;
+  padding-left: 220rpx;
+  width: 100%;
+  background-color: white;
+}
+.bottom>.add{
+  width: 40rpx;
+  height: 40rpx;
+  border: 1rpx solid greenyellow;
+  border-radius: 40rpx;
+  margin-right: 20rpx;
+}
+.bottom>.add>view{
+  color: greenyellow;
+  font-size: 40rpx;
+  font-family: "微软雅黑";
+  margin-top: -10rpx;
+  margin-left: 8rpx;
+}
+
+.scroll{
+  height: 980rpx;
+  width: 100%;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}

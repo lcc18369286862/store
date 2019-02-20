@@ -1,0 +1,20 @@
+<form bindsubmit='formSubmit'>
+  <view class='head'>
+    <textarea placeholder='请输入备注，最多50个字哦' maxlength="50" value='{{remark}}' name="remark" bindinput="inputEvent">
+    </textarea>
+    <view class='number'>{{fontNumber}} / 50</view>
+    <view class='commonRemark'>
+      <view wx:for="{{commonRemark}}" wx:key="index" bindtap='addRemark' data-value='{{item}}'>
+        {{item}}
+      </view>
+    </view>
+  </view>
+
+  <view class='submit'>
+    <button form-type="submit">完成</button>
+  </view>
+</form>
+
+<import src="../../../src/template/showMessage" />
+<template is="showMessgae" data="{{...item}}"/>
+

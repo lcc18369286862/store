@@ -42,12 +42,12 @@
   margin-left: 10rpx;
 }
 
-.tags {
+.shopInfo>view>.tags {
   background-color: red;
   border-radius: 5rpx;
   padding: 5rpx;
   color: white;
-  margin-right: 10rpx;
+  margin-right: 5rpx;
   font-size: 20rpx;
   padding-left: 10rpx;
   padding-right: 10rpx;
@@ -56,7 +56,7 @@
 /* 主体部分 */
 
 .shop_menu {
-  /* 菜单 */
+  /* 页面主菜单 */
   width: 100%;
   height: 60rpx;
   padding-left: 20rpx;
@@ -64,12 +64,16 @@
   padding-bottom: 20rpx;
   color: #555;
   border-bottom: 1rpx solid #ddd;
+  display: flex;
+  flex-direction: row;
 }
 
-.shop_menu>text {
-  margin-left: 40rpx;
-  margin-right: 40rpx;
+.shop_menu>view {
+  padding-left: 40rpx;
+  padding-right: 40rpx;
 }
+
+/* 菜单界面 */
 
 /* 左边的滚动区域 */
 
@@ -188,20 +192,220 @@
   margin-left: 10rpx;
   height: 40rpx;
   width: 40rpx;
-  padding-left: 0;
-  padding-right: 0;
-  padding-bottom: 10rpx;
+  padding: 0;
   border-radius: 20rpx;
   background-color: gold;
-  font-weight: 900;
-  font-size: 30rpx;
+  /* font-weight: 900; */
   color: black;
+}
+.goods_price>view>button>text{
+  position: relative;
+  top:-35rpx;
+  font-size: 40rpx; 
 }
 
 .goods_discount {
   font-size: 20rpx;
   color: red;
   font-weight: 900;
+}
+
+/* 评价界面 */
+
+/* 评分栏目 */
+.adge{
+  width: 100%;
+  height: 20rpx;
+  background-color: #eee;
+}
+.grade{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.grade>view{
+  padding: 20rpx;
+  text-align: center;
+}
+.grade>view>view{
+  font-size: 28rpx;
+  color: #888;
+}
+.grade>.shopGrade{
+  width: 160rpx;
+}
+.grade>.shopGrade>.number{
+  font-size: 60rpx;
+  color: goldenrod;
+}
+.grade>.starGrade{
+  width: 310rpx;
+  margin: 10rpx 0;
+  text-align: left;
+}
+.grade>.starGrade>view{
+  padding: 10rpx 0;
+  border-right: 2rpx solid #eee;
+}
+.grade>.starGrade>view>.number{
+  color: goldenrod;
+}
+.grade>.starGrade>view>image{
+  position: relative;
+  top: 5rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+.grade>.deliveryGrade>.number{
+  font-size: 50rpx;
+  margin-top: 10rpx;
+}
+
+/* 评论筛选 */
+.estimate_tags{
+  padding: 20rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.estimate_tags>view{
+  border: 1rpx solid #ddd;
+  padding: 10rpx 20rpx;
+  margin-right: 20rpx;
+  margin-bottom: 20rpx;
+  font-size: 30rpx;
+  color: #888;
+}
+.estimate_tags>.current{
+  border-color: goldenrod;
+  color: goldenrod;
+}
+
+/* 评论 */
+.comment{
+  display: flex;
+  flex-direction: column;
+}
+.comment>view{
+  width: 710rpx;
+  padding: 20rpx;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  flex-direction: row;
+}
+.comment>view>.headPhoto>image{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50rpx;
+  margin-right: 20rpx;
+}
+.comment>view>.content{
+  display: flex;
+  flex-direction: column;
+}
+.comment>view>.content>.name{
+  display: flex;
+  flex-direction: row;
+}
+.comment>view>.content>.name>view{
+  font-size: 35rpx;
+}
+.comment>view>.content>.name>.datetime{
+  font-size: 28rpx;
+  color: #999;
+  position: absolute;
+  right: 20rpx;
+}
+.comment>view>.content>.sendtime{
+  font-size: 28rpx;
+  color: #999;
+}
+.comment>view>.content>.message{
+  margin-top: 20rpx;
+  font-size: 30rpx;
+}
+.comment>view>.content>.tags{
+  font-size: 28rpx;
+  color: #888;
+}
+.comment>view>.content>.tags>image{
+  height: 30rpx;
+  width: 30rpx;
+  position: relative;
+  top: 5rpx;
+}
+
+/* 商家信息 */
+.shopDetail>view{
+  font-size: 28rpx;
+  align-items: center;
+}
+.shopDetail>view>image,
+.shopDetail>view>view>image{
+  width: 40rpx;
+  height: 40rpx; 
+  margin-right: 10rpx;
+  position: relative;
+  top: 10rpx;
+}
+.shopDetail>.address{
+  padding: 30rpx;
+  padding-top:15rpx;
+}
+.shopDetail>.address>.phone{
+  position: absolute;
+  top: 38rpx;
+  right: 0;
+}
+.shopDetail>.record{
+  padding: 30rpx;
+  padding-top:15rpx;
+}
+.shopDetail>.record>.more{
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: 155rpx;
+  right: 0;
+}
+.shopDetail>.delivery{
+  padding: 30rpx;
+  padding-top:15rpx;
+  border-bottom: 1rpx solid #eee;
+}
+.shopDetail>.service_detail>.big{
+  padding: 30rpx;
+  padding-top:30rpx;
+  border-bottom: 1rpx solid #eee;
+  display: flex;
+  flex-direction: row;
+}
+.shopDetail>.service_detail>.big>image{
+  position: relative;
+  top: -3rpx;
+}
+.shopDetail>.service_detail>.big>view,
+.option>view>view{
+  border: 1rpx solid #ccc;
+  width: 35rpx;
+  height: 35rpx;
+  font-size: 25rpx;
+  text-align: center;
+  margin: 0 5rpx;
+  color: #ccc;
+}
+.option>view>view{
+  color: white;
+  border: 0;
+  background-color: green;
+  margin-right: 15rpx;
+  margin-left: 10rpx;
+}
+.option>view{
+  display: flex;
+  flex-direction: row;
+  font-size: 25rpx;
+  padding: 20rpx;
 }
 
 /* 漂浮窗口 */
@@ -214,14 +418,14 @@
   left: 0;
   background: #000;
   z-index: 9000;
-  opacity: 0.7;
+  opacity: 0.5;
 }
 
 .modalDlg {
   padding-top: 20rpx;
   padding-left: 20rpx;
   width: 580rpx;
-  height: 700rpx;
+  height: 630rpx;
   position: fixed;
   top: 50%;
   left: 0;
@@ -233,15 +437,59 @@
   flex-direction: column;
   /* align-items: center; */
 }
-
+.modalDlg>icon{
+  position: relative;
+  top: 100rpx;
+  color: black;
+  right: -260rpx;
+}
 .modalDlg>image {
   margin-left: 40rpx;
   width: 500rpx;
   height: 500rpx;
 }
 
-/* 底部 */
+/* 商铺详细信息 */
+.shopDetailInfo{
+  padding-top: 20rpx;
+  padding-left: 20rpx;
+  width: 690rpx;
+  height: 730rpx;
+  position: fixed;
+  top: 50%;
+  left: 0;
+  z-index: 9999;
+  margin: -500rpx 25rpx;
+  background-color: #fff;
+  border-radius: 36rpx;
+  display: flex;
+  flex-direction: column;
+}
+.detailInfo>view{
+  padding: 20rpx 0;
+}
+.detailInfo>view>.option>view{
+  padding: 10rpx 0;
+}
+.detailInfo>view>.title{
+  font-weight: 900;
+  font-size: 35rpx;
+  margin-bottom: 10rpx;
+}
+.detailInfo>view>.tags{
+  font-size: 25rpx;
+  color: #aaa;
+  border: 1rpx solid #ddd;
+  padding: 3rpx 10rpx;
+  width: 100rpx;
+}
+.detailInfo>view>view{
+  font-size: 30rpx;
+  color: #555;
+}
 
+/* 底部 */
+/* 未点餐 */
 .bottom {
   position: fixed;
   bottom: 0;
@@ -274,4 +522,45 @@
   height: 100rpx;
   background-color: #555;
   color: #aaa;
+}
+
+/* 点餐后 */
+.bottom>.total_price>view{
+  font-size: 25rpx;
+}
+.bottom>.total_price>view:first-child{
+  margin-left: 10rpx;
+  font-size: 32rpx;
+  color: white;
+}
+.bottom>.total_price>view>text{
+  font-size: 50rpx;
+}
+.bottom>.account{
+  background-color: yellowgreen;
+  color: white;
+}
+.bottom>.count{
+  position: fixed;
+  z-index: 9999;
+  background-color: red;
+  color: white;
+  bottom: 40rpx;
+  left: 40rpx;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 30rpx;
+}
+.bottom>.count>view{
+  font-size: 25rpx;
+  position: relative;
+  left: 8rpx;
+  bottom: 3rpx;
+}
+
+
+.star{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 10rpx;
 }

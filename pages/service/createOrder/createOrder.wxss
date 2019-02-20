@@ -1,0 +1,239 @@
+/* pages/service/createOrder/createOrder.wxss */
+ 
+page{
+ 
+  background: #eee;
+ 
+}
+ 
+/* 顶部 */
+ 
+.head{
+ 
+  background-color: white;
+ 
+  margin: 20rpx;
+ 
+  padding: 0 20rpx;
+ 
+}
+ 
+.head>view{
+ 
+  font-family: "微软雅黑";
+ 
+  font-size: 38rpx;
+ 
+  display: flex;
+ 
+  flex-direction: row;
+ 
+  padding: 30rpx 0;
+ 
+  border-bottom: 1rpx solid #eee;
+ 
+  align-items: center;
+ 
+}
+ 
+.head>view>icon{
+ 
+  margin: 20rpx;
+ 
+}
+ 
+.head>view>image{
+ 
+  width: 40rpx;
+ 
+  height: 40rpx;
+ 
+  margin-right: 10rpx;
+ 
+}
+ 
+.head>view>.more{
+ 
+  position: absolute;
+ 
+  right: 30rpx;
+ 
+  width: 30rpx;
+ 
+  height: 30rpx;
+ 
+}
+ 
+.head>view>view>.title{
+ 
+  font-size: 38rpx;
+ 
+  font-family: "微软雅黑";
+ 
+  font-weight: 700;
+ 
+}
+ 
+.head>view>text{
+ 
+  font-size: 30rpx;
+ 
+  color: blue;
+ 
+  margin-left: 10rpx;
+ 
+}
+ 
+
+ 
+/* 订单详情 */
+ 
+.order_goods{
+ 
+  background-color: white;
+ 
+  margin: 20rpx;
+ 
+  margin-top: 0;
+ 
+  padding: 0 20rpx;
+ 
+}
+ 
+.order_goods>.shop_title{
+ 
+  padding: 30rpx 20rpx;
+ 
+  font-size: 30rpx;
+ 
+  color: #666;
+ 
+}
+ 
+.order_goods>.goods{
+ 
+  background-color: #eee;
+ 
+}
+ 
+.order_goods>.goods>view>view{
+ 
+  display: flex;
+ 
+  flex-direction: row;
+ 
+}
+ 
+.order_goods>.goods>view>.side{
+ 
+  width: 100%;
+ 
+  padding: 0;
+ 
+  height: 10rpx;
+ 
+  background-color: white;
+ 
+}
+ 
+.order_goods>.goods>view>view>.image>image{
+ 
+  width: 120rpx;
+ 
+  height: 120rpx;
+ 
+  margin: 10rpx;
+ 
+  margin-bottom: 0;
+ 
+}
+ 
+.order_goods>.goods>view>view>.message{
+ 
+  margin-top: 10rpx;
+ 
+}
+ 
+.order_goods>.goods>view>view>.message>view{
+ 
+  font-size: 28rpx;
+ 
+}
+ 
+.order_goods>.goods>view>view>.message>.price{
+ 
+  position: relative;
+ 
+  left:440rpx;
+ 
+  bottom: 70rpx;
+ 
+}
+ 
+.order_goods>.show_more{
+ 
+  margin-left: 280rpx;
+ 
+  margin-top: 20rpx;
+ 
+}
+ 
+.order_goods>.show_more>view{
+ 
+  border: 1rpx solid #ccc;
+ 
+  text-align: center;
+ 
+  padding: 5rpx 10rpx;
+ 
+  width: 120rpx;
+ 
+  font-size: 25rpx;
+ 
+  height: 40rpx;
+ 
+  color: #aaa;
+ 
+}
+ 
+
+ 
+/* 底部按钮 */
+ 
+.bottom{
+ 
+  position: fixed;
+ 
+  bottom: 0;
+ 
+  width: 100%;
+ 
+}
+ 
+.bottom>button{
+ 
+  text-align: center;
+ 
+  background-color: goldenrod;
+ 
+  color: white;
+ 
+  font-size: 40rpx;
+ 
+  border-radius: 0;
+ 
+}
+ 
+.bottom>button:hover{
+ 
+  background-color: green;
+ 
+}
+ 
+.bottom>button>text{
+ 
+  margin-left: 10rpx;
+ 
+  font-size: 30rpx;
+ 
+}

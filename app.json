@@ -6,7 +6,13 @@
     "pages/order/order",
     "pages/shop/shop",
     "pages/search/search",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/service/addLocation/addLocation",
+    "pages/service/changeCity/changeCity",
+    "pages/service/getLocation/getLocation",
+    "pages/service/shopRecord/shopRecord",
+    "pages/service/createOrder/createOrder",
+    "pages/service/addRemark/addRemark"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -37,6 +43,11 @@
         "text": "我的"
       }
     ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
   },
   "debug": true
 }

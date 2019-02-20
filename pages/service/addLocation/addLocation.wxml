@@ -1,0 +1,88 @@
+<!--pages/service/addLoction/addlocation.wxml-->
+<form bindsubmit='submit' wx:if="{{!showAddress}}">
+  <view class='form'>
+    <!-- 联系人 -->
+    <view>
+      <view class='project'>联系人：</view>
+      <view>
+        <input placeholder='请填写收货人的姓名' name="name"></input>
+      </view>
+    </view>
+
+    <!-- 性别 -->
+    <view>
+      <view class='project'></view>
+      <view>
+        <radio-group name="sex">
+          <radio checked='checked' value='先生'>先生</radio>
+          <radio value='女士'>女士</radio>
+        </radio-group>
+      </view>
+    </view>
+
+    <!-- 手机号 -->
+    <view>
+      <view class='project'>手机号：</view>
+      <view>
+        <input placeholder='请填写收货人手机号码' name="phone"></input>
+      </view>
+    </view>
+
+    <!-- 收货地址 -->
+    <view>
+      <view class='project'>收货地址：</view>
+      <view class='choose' bindtap='click'>
+        <view><image src='/image/icon/location.png'></image></view>
+        <view>{{chooseAddress==""?"点击选择":chooseAddress}}</view>
+        <view class='show_more'><image src='/image/showMore.png'></image></view>
+      </view>
+    </view>
+
+    <!-- 门牌号 -->
+    <view>
+      <view class='project'>门牌号：</view>
+      <view>
+        <input placeholder='详细地址，例如：16号楼5层301室' name="detail"></input>
+      </view>
+    </view>
+
+    <!-- 保存 -->
+    <view>
+      <button form-type='submit'>保存地址</button>
+    </view>
+  </view>
+</form>
+
+<!-- 选择地址 -->
+<view wx:if="{{showAddress}}" class='select_location'>
+  <!-- 选择城市 -->
+  <view class='choose_city'>
+    <image src='/image/icon/location.png'></image>
+    <view bindtap='changeCity'>
+      <text>{{current_city}}</text>
+    </view>
+    <image src='/image/icon/bottom_more.png'></image>
+    <view class='address'>
+      <icon type='search' size='35rpx'></icon>
+      <input type='text' bindinput='doSearch' placeholder='请输入收货地址'></input>
+    </view>
+  </view>
+  
+  <!-- 附近地址 -->
+  <view class='near' wx:if="{{isShow}}">
+    <image src='/image/icon/location.png'></image>
+    <text>附近地址</text>
+  </view>
+  <view class='addresses' wx:if="{{isShow}}">
+    <view wx:for="{{near_mks}}" bindtap='changeLocation1' data-message='{{item}}' wx:key="index">
+      {{item.title}}
+    </view>
+  </view>
+</view>
+
+<!-- 搜索地址展示 -->
+<view class='addresses' wx:if="{{!isShow}}">
+  <view wx:for="{{mks}}" bindtap='changeLocation' data-message='{{item}}' wx:key="index">
+    {{item.title}}
+  </view>
+</view>

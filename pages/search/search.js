@@ -84,7 +84,7 @@ Page({
     this.setData({ searchText: "", isHasText: false });
   },
   hotSearch: function(e){
-    var searchT = e.target.dataset.id;
+    var searchT = e.target.dataset.text;
     this.setData({ searchText: searchT, isHasText:true});
   }
 })

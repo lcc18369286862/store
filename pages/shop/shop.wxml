@@ -1,3 +1,4 @@
+<!-- 页面顶部 -->
 <view class='shop_head'>
   <view>
     <image src='../../image/dingdan.png' mode='scaleToFill'></image>
@@ -12,18 +13,34 @@
     </view>
     <view>
       <text wx:for="{{shop.tags}}" class='tags' wx:key="*this">{{item}}</text>
+      <image src='/image/showMore.png' style='width:30rpx;height:30rpx;' bindtap='showShopInfo'></image>
     </view>
   </view>
 </view>
+
+<!-- 页面主菜单 -->
 <view class='shop_menu'>
-  <text style='font-weight: {{font_weight[0]}};' bindtap='menuButton' data-id='0'>菜单</text>
-  <text style='font-weight: {{font_weight[1]}};' bindtap='menuButton' data-id='1'>评价</text>
-  <text style='font-weight: {{font_weight[2]}};' bindtap='menuButton' data-id='2'>商家</text>
+  <view bindtap='menuButton' data-id='0'>
+    <text style='font-weight: {{ShowView==0?900:100}};'>菜单</text>
+  </view>
+  <view bindtap='menuButton' data-id='1'>
+    <text style='font-weight: {{ShowView==1?900:100}};'>评价</text>
+  </view>
+  <view bindtap='menuButton' data-id='2'>
+    <text style='font-weight: {{ShowView==2?900:100}};'>商家</text>
+  </view>
 </view>
-<view class='body' wx:if="{{isShowView[0]}}">
+
+<!-- 店内优惠券 -->
+<view>
+  <view></view>
+</view>
+
+<!-- 商品菜单 -->
+<view class='body' wx:if="{{ShowView==0}}">
   <scroll-view scroll-y style="height: 860rpx;width:200rpx;background-color=#d6fed3;">
     <view wx:for="{{shop_column}}" style='background-color=#d6fed3;' wx:key="*this">
-      <view class='shop_column' wx:if="{{index!=0}}">
+      <view class='shop_column' wx:if="{{index!=currentArea}}" bindtap='turnArea' data-id='{{index}}'>
         <view>
           <view>
             <text>{{item}}</text>
@@ -34,7 +51,7 @@
           </view>
         </view>
       </view>
-      <view class='shop_column_checked' wx:else>
+      <view class='shop_column_checked' bindtap='turnArea' data-id='{{index}}' wx:else>
         <view>
           <view>
             <text>{{item}}</text>
@@ -52,12 +69,12 @@
   <view class='all_area_title'>
     <text>{{goods_area[0].info}}</text>
   </view>
-  <scroll-view scroll-y style="height: 860rpx;width:550rpx;">
-    <view class='goods_area' wx:for="{{goods_area}}" wx:for-item="area" wx:for-index="x" wx:key="name">
+  <scroll-view scroll-y style="height: 860rpx;width:550rpx;" scroll-into-view="{{'area'+currentArea}}">
+    <view class='goods_area' wx:for="{{goods_area}}" wx:for-item="area" wx:for-index="areaId" wx:key="name" id='{{"area"+areaId}}'>
       <view style='margin-top:20rpx;'>
         <text>{{area.info}}</text>
       </view>
-      <view class='goods' wx:for="{{area.goods}}" wx:for-item="goods" bindtap='showMessage' data-id='{{x+""+index}}' wx:key="name">
+      <view class='goods' wx:for="{{area.goods}}" wx:for-item="goods" bindtap='showMessage' data-areaid='{{areaId}}' data-id="{{index}}" wx:key="name">
         <view>
           <image src='{{goods.img}}'></image>
         </view>
@@ -75,9 +92,13 @@
             <text class='price'>￥{{goods.price}}</text>
             <text wx:if="{{goods.isDiscount}}">￥{{goods.oldPrice}}</text>
             <view>
-              <button>-</button>
-              <text>0</text>
-              <button>+</button>
+              <button catchtap='subGoods' wx:if="{{goods.selectNums!=0}}" data-id='{{index}}' data-areaid='{{areaId}}'>
+                <text>-</text>
+              </button>
+              <text wx:if="{{goods.selectNums!=0}}" catchtap='inanition'>{{goods.selectNums}}</text>
+              <button catchtap='addGoods' data-id='{{index}}' data-areaid='{{areaId}}'>
+                <text>+</text>
+              </button>
             </view>
           </view>
           <view class='goods_discount' wx:if="{{goods.isDiscount}}">
@@ -87,19 +108,147 @@
       </view>
     </view>
   </scroll-view>
-</view>
-<view wx:if="{{isShow[1]}}">1
-</view>
-<view wx:if="{{isShow[2]}}">2
+
+  <!-- 页面底部的信息及确定购物按钮 -->
+  <!-- 派送费以下 -->
+  <view class='bottom' wx:if="{{orderForm.totalPrice==0}}">
+    <image></image>
+    <text>另需配送费￥{{shop.shippingRate}} | 支持自取</text>
+    <button>{{shop.sendingFee}}元起送</button>
+  </view>
+
+  <!-- 派送费以上 -->
+  <view wx:else class='bottom'>
+    <view class='count'><view>{{goodsCount}}</view></view>
+    <image></image>
+    <view class='total_price'>
+      <view>￥<text>{{orderForm.totalPrice}}</text></view>
+      <view>另需配送费￥{{shop.shippingRate}} | 支持自取</view>
+    </view>
+    <button wx:if="{{orderForm.totalPrice<shop.sendingFee}}">还需{{needAddMoney}}元</button>
+    <button bindtap='submitOrder' wx:if="{{orderForm.totalPrice>shop.sendingFee}}" class="account">去结算</button>
+  </view>
 </view>
 
-<view class='bottom'>
-  <image></image>
-  <text>另需配送费￥3.4 | 支持自取</text>
-  <button>20元起送</button>
+<!-- 评价 -->
+<view wx:if="{{ShowView==1}}">
+  <scroll-view scroll-y style="height: 920rpx;width:100%;background-color=#d6fed3;">
+    <!-- 评分 -->
+    <view class='adge'></view>
+    <view class='grade'>
+      <view class='shopGrade'>
+        <view class='number'>{{shop.grade.shopGrade}}</view>
+        <view class=''>商家评分</view>
+      </view>
+      <view class='starGrade'>
+        <view>口味
+          <image src='/image/icon/star.png' wx:for="{{[0,1,2,4,5]}}"></image>
+          <text class='number'>{{shop.grade.tasteGrade}}</text>
+        </view>
+        <view>包装
+          <image src='/image/icon/star.png' wx:for="{{[0,1,2,3,4]}}"></image>
+          <text class='number'>{{shop.grade.packGrade}}</text>
+        </view>
+      </view>
+      <view class='deliveryGrade'>
+        <view class='number'>{{shop.grade.deliveryGrade}}</view>
+        <view>配送评分</view>
+      </view>
+    </view>
+    <view class='adge'></view>
+
+    <!-- 评论筛选 -->
+    <view class='estimate_tags'>
+      <view wx:for="{{estimateTags}}" wx:key="index" class='{{currentEstimateTags==index?"current":""}}' data-id='{{index}}' bindtap='filtrate'>{{item.name+"("+item.count+")"}}</view>
+    </view>
+    <view class='adge'></view>
+
+    <!-- 评论 -->
+    <view class='comment'>
+      <view wx:for="{{comment}}" wx:key="index">
+        <view class='headPhoto'>
+          <image src='{{item.headPhoto}}'></image>
+        </view>
+        <view class='content'>
+          <view class='name'>
+            <view>{{(item.name==""||item.name==null)?"匿名用户":item.name}}</view>
+            <view class='datetime'>{{item.datetime}}</view>
+          </view>
+          <view class='sendtime'>
+            <image src='/image/icon/star.png' wx:for="{{[0,1,2,3,4]}}" class='star' wx:key="index"></image>{{item.sendtime}}分钟送达
+          </view>
+          <view class='message'>{{item.message}}</view>
+          <view>
+            <image wx:for="{{item.imgs}}" src='{{item}}' wx:key="index"></image>
+          </view>
+          <view class='tags'>
+            <image src='/image/icon/goodsTags.png'></image>{{item.tags.goodsTags}}</view>
+          <view class='tags'>
+            <image src='/image/icon/sendTags.png'></image>{{item.tags.sendTags}}</view>
+        </view>
+      </view>
+    </view>
+
+  </scroll-view>
 </view>
 
-<view class="mask" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+<!-- 商家 -->
+<view wx:if="{{ShowView==2}}">
+  <scroll-view scroll-y style="height: 920rpx;width:100%;background-color=#d6fed3;">
+    <view class='shopDetail'>
+      <view class='adge'></view>
+      <!-- 电话 -->
+      <view class='address'>
+        <image src='/image/icon/location.png'></image>
+        <text>{{shop.address}}</text>
+        <image src='/image/icon/phone.png' class='phone' bindtap='callUp'></image>
+      </view>
+      <view class='adge'></view>
+
+      <!-- 公司资质 -->
+      <view class='record'>
+        <image src='/image/icon/record.png'></image>
+        <text>查看食品安全档案</text>
+        <image src='/image/showMore.png' class='more' bindtap='turnRecord'></image>
+      </view>
+      <view class='adge'></view>
+
+      <!-- 配送 -->
+      <view class='delivery'>
+        <image src='/image/icon/delivery.png'></image>
+        配送服务：由美团快递提供配送服务</view>
+      <view class='record'>
+        <image src='/image/icon/sendTime.png'></image>
+        配送时间：10：00-20：50</view>
+      <view class='adge'></view>
+
+      <!-- 商家服务 -->
+      <view class='service_detail'>
+        <view class='big'>
+          <image src='/image/icon/yes.png'></image>
+          商家服务：
+          <view>订</view>跨天预定
+          <view style='margin-left:20rpx;'>取</view>到店自取（享优惠）
+        </view>
+        <view class='option'>
+          <view>
+            <view style='background-color:red'>减</view>满29减20;满35减22;满55减28;满80减32(在线支付专享) </view>
+          <view>
+            <view style='background-color:blue'>折</view>折扣商品2.5折起(在线支付专享)
+          </view>
+          <view>
+            <view style='background-color:brown'>领</view>领3元卷</view>
+          <view>
+            <view style='background-color:goldenrod'>首</view>新用户立减14元(在线支付专享)</view>
+        </view>
+      </view>
+
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 展开的商品信息详情表 -->
+<view class="mask" catchtap="hiddenModal" wx:if="{{showModal}}"></view>
 <view class="modalDlg" wx:if="{{showModal}}">
   <view class='goods_name'>
     <text>{{select_goods.name}}</text>
@@ -112,10 +261,62 @@
     <text class='price'>￥{{select_goods.price}}</text>
     <text wx:if="{{select_goods.isDiscount}}">￥{{select_goods.oldPrice}}</text>
     <view>
-      <button>-</button>
-      <text>0</text>
-      <button>+</button>
+      <button catchtap='subGoods' wx:if="{{select_goods.selectNums!=0}}" data-id='{{select_goods_index.id}}' data-areaid='{{select_goods_index.areaId}}'>
+        <text>-</text>
+      </button>
+      <text wx:if="{{select_goods.selectNums!=0}}">{{select_goods.selectNums}}</text>
+      <button catchtap='addGoods' data-id='{{select_goods_index.id}}' data-areaid='{{select_goods_index.areaId}}'>
+        <text>+</text>
+      </button>
     </view>
   </view>
-  <button bindtap="hiddenModal">点我可以关掉对话框</button>
+  <icon type='cancel' bindtap="hiddenModal" color='white'></icon>
+</view>
+
+<!-- 显示商铺详细信息 -->
+<view class="mask" catchtap="hiddenShopInfo" wx:if="{{isShowShopInfo}}"></view>
+<view class='shopDetailInfo' wx:if="{{isShowShopInfo}}">
+  <!-- 店铺名 -->
+  <view>{{shop.name}}</view>
+
+  <scroll-view scroll-y style="height: 630rpx;width:100%;">
+
+    <view class='detailInfo'>
+      <!-- 优惠 -->
+      <view>
+        <view class='title'>优惠</view>
+        <view class='option'>
+          <view>
+            <view style='background-color:red'>减</view>满29减20;满35减22;满55减28;满80减32(在线支付专享)
+          </view>
+          <view>
+            <view style='background-color:blue'>折</view>折扣商品2.5折起(在线支付专享)
+          </view>
+          <view>
+            <view style='background-color:goldenrod'>首</view>新用户立减14元(在线支付专享)
+          </view>
+        </view>
+      </view>
+
+      <!-- 服务 -->
+      <view>
+        <view class='title'>服务</view>
+        <view class='tags'>极速退款</view>
+        <view>极速退款是商家为用户提供的退款权益，缝合规则可急速退款</view>
+      </view>
+
+      <!--配送 -->
+      <view>
+        <view class='title'>配送</view>
+        <view>起送￥20 | 配送￥3.5 | 10分钟</view>
+        <view>配送时间：10：00-21：00</view>
+      </view>
+
+      <!-- 公告 -->
+      <view>
+        <view class='title'>公告</view>
+        <view>{{shop.notice}}</view>
+      </view>
+    </view>
+  </scroll-view>
 </view>

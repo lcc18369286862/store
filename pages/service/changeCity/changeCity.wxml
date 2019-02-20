@@ -1,0 +1,19 @@
+<!--pages/service/changeCity/changeCity.wxml-->
+<!-- 输入框 -->
+<view class='input'>
+<icon type='search' size='30rpx'></icon>
+  <input placeholder='请输入城市名进行搜索'></input>
+</view>
+
+<!-- 当前城市 -->
+<view class='current_city'>
+  <image src='/image/icon/location.png'></image>
+  当前定位城市
+  <text>{{current_city}}市</text>
+</view>
+
+<!-- 热门城市 -->
+<view class='title'>热门城市</view>
+<view class='hot_city'>
+  <view wx:for="{{hot_city}}" wx:key="index" class='{{(item==current_city)?"current":"normal"}}' bindtap='changeCity' data-city='{{item}}'>{{item}}</view>
+</view>

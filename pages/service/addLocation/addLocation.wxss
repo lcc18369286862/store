@@ -1,0 +1,112 @@
+/* pages/service/addLoction/addlocation.wxss */
+/* 表单 */
+.form{
+  display: flex;
+  flex-direction: column;
+  padding-left: 30rpx;
+}
+.form>view{
+  display: flex;
+  flex-direction: row;
+  padding: 30rpx 0;
+  border-bottom: 1rpx solid #eee;
+}
+.form>view>view{
+  font-size: 30rpx;
+}
+.form>view>.project{
+  width: 170rpx;
+}
+.form>view>view>input{
+  width: 520rpx;
+  position: relative;
+  top: -5rpx;
+}
+.form>view>view>radio-group>radio{
+  margin-right: 30rpx;
+}
+.form>view>button{
+  width: 680rpx;
+  background-color: blue;
+  color: white;
+  font-size: 35rpx;
+  border-radius: 0;
+}
+.choose{
+  display: flex;
+  flex-direction: row;
+}
+.choose>view{
+  color: #888;
+}
+.choose>view>image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.choose>.show_more>image{
+  position: absolute;
+  right: 30rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+
+/* 顶部输入框 */
+.choose_city{
+  padding: 20rpx 20rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1rpx solid #eee;
+}
+.choose_city>view{
+  font-size: 35rpx;
+  padding-top: 15rpx;
+}
+.choose_city>image{
+  margin-top: 10rpx;
+  position: relative;
+  top: 10rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+.choose_city>.address{
+  border-radius: 5prx;
+  background-color: #eee;
+  padding: 10rpx 20rpx;
+  display: flex;
+  flex-direction: row;
+}
+.choose_city>.address>icon{
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+}
+
+/* 附近地址 */
+.near{
+  padding: 30rpx 20rpx;
+  color: #888;
+  font-size: 32rpx;
+}
+.near>image{
+  width: 40rpx;
+  height: 40rpx;
+  position: relative;
+  top: 10rpx;
+  margin-left: 15rpx;
+}
+
+
+/* 搜索得到的地址 */
+.addresses{
+  margin-left: 80rpx;
+  margin-right: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+.addresses>view{
+  border-bottom: 1rpx solid #eee;
+  padding: 25rpx 0;
+  font-size: 35rpx;
+}
+.addresses>view:hover{
+  background-color: #eee;
+}

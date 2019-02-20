@@ -1,4 +1,5 @@
 // pages/user/user.js
+const app =getApp();
 Page({
 
   /**
@@ -55,7 +56,6 @@ Page({
       success: function(res) {
         longitu = res.longitude;
         latitu = res.latitude;
-        console.log(longitu + latitu)
         // 引入SDK核心类
         var QQMapWX = require('../../src/qqmap-wx-jssdk.js');
 
@@ -73,9 +73,17 @@ Page({
           get_poi:1,
           poi_options: "policy=2",
           success: function (res) {
+            // console.log(res)
             that.setData({
               location: res.result.address_component.street_number});
-            console.log(res)
+            app.globalData.location = {
+              location:res.result.location,
+              city: res.result.address_component.city,
+              title: res.result.address_component.street_number,
+              adcode: res.result.ad_info.adcode,
+              province:res.result.ad_info.province
+            };
+            app.globalData.current_city = res.result.address_component.city;
           },
           fail: function (res) {
             console.log(res);
@@ -98,6 +106,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.setData({ location:app.globalData.location.title});
   },
 
   /**
@@ -145,9 +154,7 @@ Page({
       url: '../shop/shop?id='+id,
     })
   },
-  // getLocation: function(){
-
-  // },
+  // 屏幕上下拖动事件
   onPageScroll:function(e){
     var flag = this.data.allowScroll;
     if (parseInt(flag &&e.scrollTop)>=35){
@@ -156,5 +163,27 @@ Page({
     } else if (!flag &&parseInt(e.scrollTop) < 35){
       this.setData({ search_position: "position: absolute", allowScroll: true});
     }
+  },
+  getLocation: function () {
+    wx.navigateTo({
+      url: '../service/getLocation/getLocation',
+    })
+  },
+  //调用外部数据接口
+  test:function(){
+    wx.request({
+      url: '',
+      data:{},
+      header:{},
+      success:function(res){
+        console.log(res);
+      },
+      fail: function (error) {
+        console.log(error);
+      },
+      complete(res) {
+        console.log(res);
+      }
+    })
   }
 })

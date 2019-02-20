@@ -1,0 +1,5 @@
+<!--pages/service/shopRecord/shopRecord.wxml-->
+<view class='top'>商家资质信息公示</view>
+<view wx:for="{{record}}" class='imgs' wx:key="index">
+  <image src='{{item}}'></image>
+</view>

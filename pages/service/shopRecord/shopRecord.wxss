@@ -1,0 +1,14 @@
+/* pages/service/shopRecord/shopRecord.wxss */
+.top{
+  padding: 30rpx;
+  font-size: 36rpx;
+  text-align: center;
+  background-color: #eee;
+}
+.imgs{
+  padding: 20rpx;
+}
+.imgs>image{
+  width: 100%;
+  height: 490rpx;
+}
